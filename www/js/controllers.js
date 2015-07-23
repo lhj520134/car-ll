@@ -285,113 +285,125 @@ angular.module('starter.controllers', ['baiduMap'])
     })
 
     //产品展示
-    .controller('showCtrl', function($scope, Chats,$state,$http) {
+    .controller('showCtrl', function ($scope, Chats, $state, $http, $ionicModal){
 
-        $scope.fanhui = function(){
+        $scope.fanhui = function () {
             $state.go("dash");
         }
         $scope.details = function () {
             $state.go("showdetails")
         }
-        $scope.data =[
-            {
-                user:'We manufacture, in a very awkward time',
-                desc:'Cool cool light',
-                image:'img/car6.jpg'
-            },
-            {
-                user:'We manufacture, in a very awkward time',
-                desc:'Cool cool light',
-                image:'img/car5.jpg'
-            },
-            {
-                user:'We manufacture, in a very awkward time',
-                desc:'Cool cool light',
-                image:'img/car4.jpg'
-            },
-            {
-                user:'We manufacture, in a very awkward time',
-                desc:'Cool cool light',
-                image:'img/car3.jpg'
-            }
-        ]
-        //$http.get('http://localhost:3000/product')
-        //    .success(function(data){
-        //        $scope.cars = data;
-        //    })
-
-    })
-
-    .controller('showdetailsCtrl', function($scope, $state,$http,$ionicModal) {
         $scope.fanhui = function () {
             $state.go("show");
         }
-        $ionicModal.fromTemplateUrl('image-modal.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.modal = modal;
-        });
-        $scope.openModal = function() {
-            $scope.modal.show();
-        };
 
-        $scope.closeModal = function() {
-            $scope.modal.hide();
-        };
-        //Cleanup the modal when we're done with it!
-        $scope.$on('$destroy', function() {
-            $scope.modal.remove();
-        });
-        // Execute action on hide modal
-        $scope.$on('modal.hide', function() {
-            // Execute action
-        });
-        // Execute action on remove modal
-        $scope.$on('modal.removed', function() {
-            // Execute action
-        });
-        $scope.$on('modal.shown', function() {
-            console.log('Modal is shown!');
-        });
-
-        $scope.data =[
+        $scope.data = [
             {
-                user:'We manufacture, in a very awkward time。' +
-                'If tomorrow will disappear, I lost more treasures.' +
-                ' I am glad I am I, be you love me',
-                desc:'Cool cool light',
+                user: '55adf8a02333d52eefb33e1a',
+                desc: 'Cool cool light',
                 image:
-                    {
+                   {
                         file1:'img/car6.jpg',
                         file2:'img/car5.jpg',
                         file3:'img/car4.jpg',
                         file4:'img/car4.jpg'
                     }
-
+    },
+            {
+                user: '55adf8a02333d52eefb33e1a',
+                desc: 'Cool cool light',
+                image:
+                {
+                    file4:'img/car6.jpg',
+                    file2:'img/car5.jpg',
+                    file3:'img/car4.jpg',
+                    file1:'img/car4.jpg'
+                }
+            },
+            {
+                user: '55adf8a02333d52eefb33e1a',
+                desc: 'Cool cool light',
+                image:
+                {
+                    file2:'img/car6.jpg',
+                    file1:'img/car5.jpg',
+                    file3:'img/car4.jpg',
+                    file4:'img/car4.jpg'
+                }
+            },
+            {
+                user: '55adf8a02333d52eefb33e1a',
+                desc: 'Cool cool light',
+                image:
+                {
+                    file3:'img/car6.jpg',
+                    file2:'img/car5.jpg',
+                    file1:'img/car4.jpg',
+                    file4:'img/car4.jpg'
+                }
             }
         ]
-        $scope.showImage = function(index) {
-            switch(index) {
+        $ionicModal.fromTemplateUrl('image-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+        $scope.openModal = function () {
+            $scope.modal.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
+        };
+        //Cleanup the modal when we're done with it!
+        $scope.$on('$destroy', function () {
+            $scope.modal.remove();
+        });
+        // Execute action on hide modal
+        $scope.$on('modal.hide', function () {
+            // Execute action
+        });
+        // Execute action on remove modal
+        $scope.$on('modal.removed', function () {
+            // Execute action
+        });
+        $scope.$on('modal.shown', function () {
+            console.log('Modal is shown!');
+        });
+
+        $scope.showImage = function (index) {
+            switch (index) {
                 case 1:
-                    $scope.imageSrc =  $scope.data[0].image.file1;
+                    $scope.imageSrc = $scope.data[0].image.file1;
                     break;
                 case 2:
-                    $scope.imageSrc  = $scope.data[0].image.file2;
+                    $scope.imageSrc = $scope.data[0].image.file2;
                     break;
                 case 3:
-                    $scope.imageSrc  = $scope.data[0].image.file3;
+                    $scope.imageSrc = $scope.data[0].image.file3;
                     break;
                 case 4:
-                    $scope.imageSrc  = $scope.data[0].image.file4;
+                    $scope.imageSrc = $scope.data[0].image.file4;
                     break;
             }
             $scope.openModal();
         }
+        //$http.post( URL + 'product', {params: {
+        //                user: '55adf8a02333d52eefb33e1a',
+        //                desc: 'Cool cool light',
+        //                image: 'img/car3.jpg'
+        //            }})
+        //    .success(function(data){
+        //        alert('success');
+        //    }).error(function (error) {
+        //        alert(error);
+        //    }).finally(function (callback, progerss) {
+        //
+        //    });
 
+    })
 
-    }
-)
 
 
 
